@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,21 +7,9 @@ import { NgbCarouselConfig } from '@ng-bootstrap/ng-bootstrap';
   providers: [NgbCarouselConfig]
 })
 
-// export class NgbdCarouselConfig {
-//   images = [700, 533, 807, 124].map((n) => `https://picsum.photos/id/${n}/900/500`);
-
-//   constructor(config: NgbCarouselConfig) {
-//     // customize default values of carousels used by this component tree
-//     config.interval = 10000;
-//     config.wrap = false;
-//     config.keyboard = false;
-//     config.pauseOnHover = false;
-//   }
-// }
 
 export class AppComponent {
-  images = [700, 533, 807, 124].map((n) => `https://picsum.photos/id/${n}/900/500`);
-
+  images = [70, 53, 807, 4].map((n) => `https://picsum.photos/id/${n}/900/500`);
   constructor(config: NgbCarouselConfig) {
     config.interval = 10000;
     config.wrap = false;
@@ -32,6 +19,8 @@ export class AppComponent {
   color: string = "";
   title: string = 'Home';
   link: string = "../assets/vid/test.mp4";
+  show: boolean = false;
+
   click(e: any): void {
     if (this.color == "red") {
       this.color = "blue";
@@ -41,7 +30,20 @@ export class AppComponent {
       this.title = "ხოუმი";
     }
     e.target.style.backgroundColor = this.color;
-
+  }
+  playVid() {
+    this.show = !this.show;
+    console.log(this.show)
+  }
+  jaba(e: any) {
+    console.log(e.value)
   }
 
+  myFunction() {
+    let name = (document.getElementById("name") as HTMLInputElement).value;
+    let surname = (document.getElementById("surname") as HTMLInputElement).value;
+    let output = (document.getElementById("output") as HTMLInputElement)
+    console.log(name, surname);
+    output.innerHTML += `<h3>${name} ${surname}</h3>`;
+  }
 }

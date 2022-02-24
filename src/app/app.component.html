@@ -51,9 +51,10 @@
           </ngb-carousel>
 
           <h3 class="text-center mt-3">video player</h3>
-          <div class="container d-flex justify-content-center">
-            <video width="1120" autoplay controls class="shadow m-3 p-1 mb-5 bg-white rounded">
-              <source src="../assets/vid/test.mp4" type="video/mp4" routerLink="/menu">
+          <div class="container d-flex justify-content-center flex-column align-items-center">
+            <button class="btn btn-default" (click)="playVid()">Play</button>
+            <video *ngIf="show" width="1120" autoplay controls class="shadow m-3 p-1 mb-5 bg-white rounded">
+              <source src={{link}} type="video/mp4" routerLink="/menu">
               Your browser does not support the video tag.
             </video>
           </div>
@@ -62,8 +63,33 @@
 
       </li>
       <li ngbNavItem>
-        <a ngbNavLink>About</a>
-        <ng-template ngbNavContent>Second content</ng-template>
+        <a ngbNavLink>Contact Us</a>
+        <ng-template ngbNavContent>Second content
+
+          <div class="container bg-dark text-danger p-5">
+
+            <form class="example-form">
+              <table class="example-full-width" cellspacing="0">
+                <tr>
+                  <td>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                      <mat-label>First name</mat-label>
+                      <input id="name" matInput #txt (keyup)="jaba(txt)">
+                    </mat-form-field>
+                  </td>
+                  <td>
+                    <mat-form-field class="example-full-width" appearance="fill">
+                      <mat-label>Long Last Name That Will Be Truncated</mat-label>
+                      <input matInput #surname id="surname" (keyup)="jaba(surname)">
+                    </mat-form-field>
+                  </td>
+                </tr>
+              </table>
+              <button class="btn btn-success" (click)="myFunction()">Add</button>
+              <div class="conteinr" id="output"></div>
+            </form>
+          </div>
+        </ng-template>
       </li>
     </ul>
   </div>
